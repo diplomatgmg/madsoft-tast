@@ -1,9 +1,12 @@
-import React, { type ReactElement } from 'react'
+import React, { type FC, type ReactElement } from 'react'
 import { useAppSelector } from '../redux/hooks'
 import questions from '../constants/questions'
 import _ from 'lodash'
 
-const Result = (): ReactElement => {
+interface ResultProps {
+  timerIsRunning: boolean
+}
+const Result: FC<ResultProps> = ({ timerIsRunning }): ReactElement => {
   const userAnswers = useAppSelector(state => state.userAnswers)
 
   const calculateCorrectAnswers = (): number => {
@@ -15,8 +18,6 @@ const Result = (): ReactElement => {
 
       if (_.isEqual(correctAnswer, userAnswer)) {
         correctAnswers += 1
-      } else {
-        console.log(`Correct - ${JSON.stringify(question.correct)}, your answer - ${userAnswers[question.id]}`)
       }
     })
 
@@ -28,6 +29,7 @@ const Result = (): ReactElement => {
   return (
     <div className="quiz__result">
       <h2>Результаты теста</h2>
+      {!timerIsRunning && <h3>Время вышло!</h3>}
       <p>Количество правильных ответов: {correctCount} из {questions.length}</p>
     </div>
   )
