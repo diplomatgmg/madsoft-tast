@@ -1,10 +1,9 @@
 import React, { type ChangeEvent, type FC, type ReactElement, useState } from 'react'
-import type { QuestionCheckbox } from '../../../types/types'
-import OptionContainer from '../OptionContainer'
-import Label from '../Label'
-import { useAppDispatch } from '../../../redux/hooks'
-import { setUserAnswer } from '../../../redux/userAnswersSlice'
+import type { QuestionCheckbox } from '../../../../types/types'
+import { useAppDispatch } from '../../../../redux/hooks'
+import { setUserAnswer } from '../../../../redux/userAnswersSlice'
 import _ from 'lodash'
+import CheckboxItem from './CheckboxItem'
 
 interface CheckboxListProps {
   question: QuestionCheckbox
@@ -26,16 +25,13 @@ const CheckboxList: FC<CheckboxListProps> = ({ question }): ReactElement => {
   return (
     <>
       {question.options.map((option, index) => (
-        <OptionContainer key={option}>
-          <input
-            type='checkbox'
-            id={`option-${index}`}
-            value={option}
-            onChange={handleChangeAnswer}
-            checked={selectedOptions.includes(option)}
-          />
-          <Label text={option} id={index} />
-        </OptionContainer>
+        <CheckboxItem
+          key={_.uniqueId()}
+          onChange={handleChangeAnswer}
+          option={option}
+          index={index}
+          isChecked={selectedOptions.includes(option)}
+        />
       ))}
     </>
   )

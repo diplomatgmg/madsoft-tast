@@ -1,9 +1,11 @@
 import React, { type ChangeEvent, type FC, type ReactElement, useState } from 'react'
-import { type QuestionRadio } from '../../../types/types'
-import OptionContainer from '../OptionContainer'
-import Label from '../Label'
-import { useAppDispatch } from '../../../redux/hooks'
-import { setUserAnswer } from '../../../redux/userAnswersSlice'
+import { type QuestionRadio } from '../../../../types/types'
+import OptionContainer from '../../OptionContainer'
+import Label from '../../Label'
+import { useAppDispatch } from '../../../../redux/hooks'
+import { setUserAnswer } from '../../../../redux/userAnswersSlice'
+import RadioItem from './RadioItem'
+import _ from 'lodash'
 
 interface RadioListProps {
   question: QuestionRadio
@@ -24,16 +26,13 @@ const RadioList: FC<RadioListProps> = ({ question }): ReactElement => {
   return (
     <>
       {question.options.map((option, index) => (
-        <OptionContainer key={option}>
-          <input
-            type='radio'
-            id={`option-${index}`}
-            value={option}
-            onChange={handleChangeAnswer}
-            checked={selectedOption === option}
-          />
-          <Label text={option} id={index} />
-        </OptionContainer>
+        <RadioItem
+          key={_.uniqueId()}
+          option={option}
+          index={index}
+          isChecked={selectedOption === option}
+          onChange={handleChangeAnswer}
+        />
       ))}
     </>
   )

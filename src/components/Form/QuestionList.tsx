@@ -2,8 +2,8 @@ import React, { type FC, type ReactElement } from 'react'
 import type { Question } from '../../types/types'
 import InputType from './OptionTypes/InputType'
 import TextareaType from './OptionTypes/TextareaType'
-import CheckboxList from './OptionTypes/CheckboxList'
-import RadioList from './OptionTypes/RadioList'
+import CheckboxList from './OptionTypes/Checkbox/CheckboxList'
+import RadioList from './OptionTypes/Radio/RadioList'
 
 interface QuestionListProps {
   question: Question
