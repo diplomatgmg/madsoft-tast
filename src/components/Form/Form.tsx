@@ -9,7 +9,7 @@ const Form = (): ReactElement => {
   const currentQuestion = questions[currentQuestionIndex]
 
   return (
-    <form className="quiz__form">
+    <form className="quiz__form" >
       <p className="quiz__question-name">{currentQuestion.title}</p>
       <QuestionList question={currentQuestion}/>
       <button type="submit">Ответить</button>

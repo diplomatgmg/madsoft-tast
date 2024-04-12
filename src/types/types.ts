@@ -1,29 +1,26 @@
-interface QuestionRadio {
+interface QuestionBase {
   id: number
   title: string
+}
+
+interface QuestionRadio extends QuestionBase {
   type: 'radio'
   correct: number
   options: string[]
 }
 
-interface QuestionCheckbox {
-  id: number
-  title: string
+interface QuestionCheckbox extends QuestionBase {
   type: 'checkbox'
   correct: number[]
   options: string[]
 }
 
-interface QuestionText {
-  id: number
-  title: string
+interface QuestionText extends QuestionBase {
   type: 'text'
   correct: string[]
 }
 
-interface QuestionTextarea {
-  id: number
-  title: string
+interface QuestionTextarea extends QuestionBase {
   type: 'textarea'
   correct: string
 }
