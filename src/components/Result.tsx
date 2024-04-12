@@ -1,13 +1,14 @@
 import React, { type FC, type ReactElement, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
-import questions from '../constants/questions'
 import _ from 'lodash'
 import { resetQuiz } from '../redux/quizSlice'
 import { clearUserAnswers } from '../redux/userAnswersSlice'
+import questions from '../constants/questions'
 
 interface ResultProps {
   pauseTimer: () => void
 }
+
 const Result: FC<ResultProps> = ({ pauseTimer }): ReactElement => {
   const userAnswers = useAppSelector(state => state.userAnswers)
   const { timeRemaining } = useAppSelector(state => state.quiz)
@@ -18,7 +19,6 @@ const Result: FC<ResultProps> = ({ pauseTimer }): ReactElement => {
   }, [])
 
   const calculateCorrectAnswers = (): number => {
-
     let correctAnswers = 0
 
     questions.forEach(question => {

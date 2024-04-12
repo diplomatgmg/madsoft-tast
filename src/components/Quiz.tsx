@@ -1,17 +1,16 @@
-import React, { type ReactElement, useEffect } from 'react'
+import React, { useEffect, type ReactElement } from 'react'
+import { useTimer } from 'react-timer-hook'
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import Form from './Form/Form'
 import ProgressBarList from './ProgressBar/ProgressBarList'
-import { useAppDispatch, useAppSelector } from '../redux/hooks'
-import questions from '../constants/questions'
 import Result from './Result'
-import { useTimer } from 'react-timer-hook'
 import { updateTime } from '../redux/quizSlice'
+import questions from '../constants/questions'
 
 const Quiz = (): ReactElement => {
+  const dispatch = useAppDispatch()
   const currentQuestionIndex = useAppSelector((state) => state.quiz.currentQuestionIndex)
   const { timeRemaining } = useAppSelector(state => state.quiz)
-
-  const dispatch = useAppDispatch()
 
   const hasNextQuestion = currentQuestionIndex < questions.length
 
