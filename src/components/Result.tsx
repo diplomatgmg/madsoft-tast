@@ -43,10 +43,10 @@ const Result: FC<ResultProps> = ({ pauseTimer }): ReactElement => {
 
   return (
     <div className="quiz__result">
-      <h2>Результаты теста</h2>
       {timeRemaining === 0 && <h3>Время вышло!</h3>}
-      <p>Количество правильных ответов: {correctCount} из {questions.length}</p>
-      <button onClick={handleRestartQuiz}>Перезапустить</button>
+      <h2>Результаты теста</h2>
+      <p>Правильных ответов: {correctCount} из {questions.length}</p>
+      <button onClick={handleRestartQuiz} className="btn">Перезапустить</button>
     </div>
   )
 }

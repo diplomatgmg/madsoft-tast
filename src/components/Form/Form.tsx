@@ -21,7 +21,7 @@ const Form = (): ReactElement => {
     <form className="quiz__form" onSubmit={handleSubmit}>
       <p className="quiz__question-name">{currentQuestion.title}</p>
       <QuestionList question={currentQuestion}/>
-      <button type="submit">Ответить</button>
+      <button type="submit" className="btn">Ответить</button>
     </form>
   )
 }
