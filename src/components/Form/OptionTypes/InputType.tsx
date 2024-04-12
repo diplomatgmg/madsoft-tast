@@ -24,7 +24,7 @@ const InputType: FC<InputListProps> = ({ question }): ReactElement => {
 
   return (
     <OptionContainer key={question.id}>
-      <input type='text' id={`${question.id}`} onChange={handleChangeInput} value={input} />
+      <input type='text' id={`option-${question.id}`} onChange={handleChangeInput} value={input} />
       <Label text={''} id={question.id}/>
     </OptionContainer>
   )

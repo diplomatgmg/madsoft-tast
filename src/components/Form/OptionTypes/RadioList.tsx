@@ -27,7 +27,7 @@ const RadioList: FC<RadioListProps> = ({ question }): ReactElement => {
         <OptionContainer key={option}>
           <input
             type='radio'
-            id={index.toString()}
+            id={`option-${index}`}
             value={option}
             onChange={handleChangeAnswer}
             checked={selectedOption === option}

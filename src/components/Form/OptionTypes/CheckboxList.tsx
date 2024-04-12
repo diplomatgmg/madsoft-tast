@@ -29,7 +29,7 @@ const CheckboxList: FC<CheckboxListProps> = ({ question }): ReactElement => {
         <OptionContainer key={option}>
           <input
             type='checkbox'
-            id={index.toString()}
+            id={`option-${index}`}
             value={option}
             onChange={handleChangeAnswer}
             checked={selectedOptions.includes(option)}

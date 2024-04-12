@@ -24,7 +24,7 @@ const TextareaType: FC<TextareaListProps> = ({ question }): ReactElement => {
 
   return (
     <OptionContainer key={question.id}>
-      <textarea id={`${question.id}`} value={input} onChange={handleChangeInput}/>
+      <textarea id={`option-${question.id}`} value={input} onChange={handleChangeInput}/>
       <Label text={''} id={question.id}/>
     </OptionContainer>
   )
