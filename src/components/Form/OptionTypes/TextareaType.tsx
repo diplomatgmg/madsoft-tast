@@ -8,7 +8,7 @@ interface TextareaListProps {
   question: QuestionTextarea
 }
 
-const TextareaList: FC<TextareaListProps> = ({ question }): ReactElement => {
+const TextareaType: FC<TextareaListProps> = ({ question }): ReactElement => {
   return (
     <OptionContainer key={question.id}>
       <Textarea id={question.id}/>
@@ -17,4 +17,4 @@ const TextareaList: FC<TextareaListProps> = ({ question }): ReactElement => {
   )
 }
 
-export default TextareaList
+export default TextareaType

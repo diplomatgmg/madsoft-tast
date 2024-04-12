@@ -8,7 +8,7 @@ interface InputListProps {
   question: QuestionText
 }
 
-const InputList: FC<InputListProps> = ({ question }): ReactElement => {
+const InputType: FC<InputListProps> = ({ question }): ReactElement => {
   return (
     <OptionContainer key={question.id}>
       <Input type={'text'} id={question.id} />
@@ -17,4 +17,4 @@ const InputList: FC<InputListProps> = ({ question }): ReactElement => {
   )
 }
 
-export default InputList
+export default InputType
