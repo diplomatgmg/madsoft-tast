@@ -2,35 +2,40 @@ import { createSlice } from '@reduxjs/toolkit'
 
 interface QuizState {
   currentQuestionIndex: number
-  correctAnswers: number
+  timeRemaining: number
+  quizFinished: boolean
 }
 
 const initialState: QuizState = {
   currentQuestionIndex: 0,
-  correctAnswers: 0
+  timeRemaining: 30,
+  quizFinished: false
 }
 
 const quizSlice = createSlice({
   name: 'quiz',
   initialState,
   reducers: {
-    addCorrectAnswer (state: QuizState) {
-      state.correctAnswers += 1
-    },
     updateCurrentQuestionIndex (state: QuizState) {
       state.currentQuestionIndex += 1
     },
-    resetQuiz (state: QuizState) {
-      state.correctAnswers = 0
-      state.currentQuestionIndex = 0
+    resetQuiz () {
+      return initialState
+    },
+    updateTime (state, action) {
+      state.timeRemaining = action.payload
+    },
+    updateQuizFinished (state, action) {
+      state.quizFinished = action.payload
     }
   }
 })
 
 export const {
-  addCorrectAnswer,
   updateCurrentQuestionIndex,
-  resetQuiz
+  resetQuiz,
+  updateTime,
+  updateQuizFinished
 } = quizSlice.actions
 
 export default quizSlice.reducer
