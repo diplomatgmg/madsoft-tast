@@ -1,10 +1,10 @@
 import React from 'react'
+import Quiz from './components/Quiz'
+import './assets/style/style.scss'
 
 const App = (): React.ReactElement => {
   return (
-    <div>
-      App component 1
-    </div>
+    <Quiz/>
   )
 }
 
