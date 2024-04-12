@@ -5,7 +5,7 @@ export default [
     id: 1,
     title: 'Какое из этих животных является хищником?',
     type: 'radio',
-    correct: 0,
+    correct: 'Лев',
     options: [
       'Лев',
       'Кролик',
@@ -16,7 +16,7 @@ export default [
     id: 2,
     title: 'Какие из перечисленных фруктов являются кислыми?',
     type: 'checkbox',
-    correct: [0, 1],
+    correct: ['Апельсин', 'Лимон'],
     options: [
       'Лимон',
       'Яблоко',
@@ -27,7 +27,7 @@ export default [
     id: 3,
     title: 'Как называется столица Франции?',
     type: 'text',
-    correct: ['Париж']
+    correct: 'Париж'
   },
   {
     id: 4,

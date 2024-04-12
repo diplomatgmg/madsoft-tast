@@ -1,8 +1,9 @@
 import React, { type FC, type ReactElement } from 'react'
 import type { Question } from '../../types/types'
 import InputType from './OptionTypes/InputType'
-import CheckboxRadioList from './OptionTypes/CheckboxRadioList'
 import TextareaType from './OptionTypes/TextareaType'
+import CheckboxList from './OptionTypes/CheckboxList'
+import RadioList from './OptionTypes/RadioList'
 
 interface QuestionListProps {
   question: Question
@@ -11,8 +12,9 @@ interface QuestionListProps {
 const QuestionList: FC<QuestionListProps> = ({ question }): ReactElement => {
   switch (question.type) {
     case 'radio':
+      return <RadioList question={question}/>
     case 'checkbox':
-      return <CheckboxRadioList question={question} />
+      return <CheckboxList question={question} />
     case 'text':
       return <InputType question={question}/>
     case 'textarea':
